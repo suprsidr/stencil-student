@@ -1,4 +1,5 @@
 import { Component, h, State } from '@stencil/core';
+import { StudentDisplay } from '../student-display/student-display';
 
 type Name = {
   first: string,
@@ -76,7 +77,7 @@ export class StudentList {
         {this.students
         .filter(student => student.name.last.startsWith(this.filter))
         .map(student => (
-          <student-display student={student}></student-display>
+          <StudentDisplay student={student}></StudentDisplay>
         ))}
           </div>
         </div>

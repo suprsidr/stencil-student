@@ -1,18 +1,42 @@
-import { Component, h, Prop } from '@stencil/core';
+import { FunctionalComponent, h } from '@stencil/core';
 
-@Component({
-  tag: 'student-display',
-  styleUrl: 'student-display.css',
-  shadow: false,
-  scoped: true
-})
-export class StudentDisplay {
+type Name = {
+  first: string,
+  last: string
+}
 
-  @Prop() student: any;
+type Picture = {
+  large: string
+}
 
-  render() {
-    const student = this.student;
-    return (
+type Location = {
+  street: string,
+  city: string,
+  state: string,
+  postcode: string
+}
+
+type Student = {
+  name: Name,
+  dob: string,
+  picture: Picture,
+  location: Location,
+  phone: string,
+  cell: string,
+  email: string,
+  registered: number,
+  major: string,
+  gpa: string,
+  sid: string,
+  modified: number,
+  modifiedby: string
+}
+
+interface StudentProps {
+  student: Student;
+}
+
+export const StudentDisplay: FunctionalComponent<StudentProps> = ({ student }) =>  (
       <div class="card">
         <div class="top text-center">
           <img class="student-image-large" src={`${student.picture.large}`} alt={`${student.name.last} ${student.name.first}`} />
@@ -37,6 +61,3 @@ export class StudentDisplay {
         </div>
       </div>
     );
-  }
-
-}

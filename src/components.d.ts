@@ -10,20 +10,11 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface StudentDisplay {
-    'student': any;
-  }
   interface StudentList {}
 }
 
 declare global {
 
-
-  interface HTMLStudentDisplayElement extends Components.StudentDisplay, HTMLStencilElement {}
-  var HTMLStudentDisplayElement: {
-    prototype: HTMLStudentDisplayElement;
-    new (): HTMLStudentDisplayElement;
-  };
 
   interface HTMLStudentListElement extends Components.StudentList, HTMLStencilElement {}
   var HTMLStudentListElement: {
@@ -31,19 +22,14 @@ declare global {
     new (): HTMLStudentListElement;
   };
   interface HTMLElementTagNameMap {
-    'student-display': HTMLStudentDisplayElement;
     'student-list': HTMLStudentListElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface StudentDisplay {
-    'student'?: any;
-  }
   interface StudentList {}
 
   interface IntrinsicElements {
-    'student-display': StudentDisplay;
     'student-list': StudentList;
   }
 }
@@ -54,7 +40,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'student-display': LocalJSX.StudentDisplay & JSXBase.HTMLAttributes<HTMLStudentDisplayElement>;
       'student-list': LocalJSX.StudentList & JSXBase.HTMLAttributes<HTMLStudentListElement>;
     }
   }
